@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter 
     basename={
-      process.env.NODE_ENV === "production" ? "/diplom_durdona/" : "/"
+      process.env.NODE_ENV === "production" ? "/diploma/" : "/"
     }>
       <Provider store={store}>
         <App />
