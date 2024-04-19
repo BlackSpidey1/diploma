@@ -8,8 +8,14 @@ const initialState = {
 export const getProducts = createAsyncThunk(
   "products/getProducts",
   async () => {
-    const res = await axios.get(`https://dummyjson.com/products?limit=100`);
-    const data = await res.data.products;
+    let data = null
+    try {
+      const res = await axios.get(`https://dummyjson.com/products?limit=100`);
+      data = await res.data.products;
+      
+    } catch (error) {
+      console.log('ошибка при получении данных', error);
+    }
 
     return data;
   }
