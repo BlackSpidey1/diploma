@@ -16,9 +16,14 @@ export const ProductItemSlice = createSlice({
   name: "productItem",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
+    builder.addCase(getProduct.pending, (state, action) => {});
     builder.addCase(getProduct.fulfilled, (state, action) => {
-      state.productItem = action.payload;
+      state.product = action.payload;
+      state.isError = false;
+    });
+    builder.addCase(getProduct.rejected, (state, action) => {
+      state.isError = true;
     });
   },
 });
