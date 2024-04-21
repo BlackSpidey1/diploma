@@ -1,4 +1,3 @@
-
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -18,9 +17,9 @@ export const ProductItemSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(getProduct.pending, (state, action) => {});
+    builder.addCase(getProduct.pending, (state, action) => { });
     builder.addCase(getProduct.fulfilled, (state, action) => {
-      state.product = action.payload;
+      state.productItem = action.payload
       state.isError = false;
     });
     builder.addCase(getProduct.rejected, (state, action) => {
